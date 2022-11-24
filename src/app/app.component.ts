@@ -7,23 +7,35 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title: string = 'my-ap';
-  tasks = [
-    "Visit someone",
-    "Go somewhere",
-    "Travel someday",
-    "Stay somehow",
-    "Shop somewhat?",
+  tasks: Task[] = [
+    new Task("Visit someone"),
+    new Task("Visit som"),
+    new Task("Visit someoe"),
+    new Task("Visit e")
   ]
 
   add(newTask: string) {
-    this.tasks.push(newTask)
+    this.tasks.push(new Task(newTask))
   }
 
-  remove(existingTask: string) {
-    let userConfirmed = confirm(`Are you sure that you wanto to remove the following task? \n "${existingTask}"`)
+  remove(existingTask: Task) {
+    let userConfirmed = confirm(`Are you sure that you wanto to remove the following task? \n "${existingTask.title}"`)
 
     if(userConfirmed) {
       this.tasks = this.tasks.filter(task => task != existingTask)
     }
   }
+
+}
+
+class Task {
+  
+  constructor (public title: string) {
+
+  }
+  toggleIsDone() {
+    this.isDone = !this.isDone
+  }
+
+  public isDone = false
 }

@@ -113,6 +113,11 @@ tr {
   flex-wrap: nowrap;
   display: flex;
   justify-content: space-between;
+  align-items: center;
+}
+
+td {
+  margin-left: 1rem;
 }
 
 .even {
@@ -127,6 +132,7 @@ tr {
 
 .is-done {
   text-decoration: line-through;
+  color: orange;
 }
 
 p {
@@ -138,3 +144,4 @@ button{
   cursor: pointer;
   height: 100%;
 }
+
